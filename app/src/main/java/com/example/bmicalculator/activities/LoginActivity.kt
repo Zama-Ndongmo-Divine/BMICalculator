@@ -8,11 +8,17 @@ import com.example.bmicalculator.activities.SelectionScreen
 import com.example.bmicalculator.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
+/**
+ * Enables a user to login into the app as a personal user. The user details are stored in a firebase database
+ */
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
+    /**
+     * Creates an instance of the login activity
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

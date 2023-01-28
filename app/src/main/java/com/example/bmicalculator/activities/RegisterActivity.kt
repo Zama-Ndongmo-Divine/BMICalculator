@@ -7,11 +7,19 @@ import android.widget.Toast
 import com.example.bmicalculator.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
+/**
+ * This is for the registration window in the app. Enables a new user create an account and use the calculator features, without interfering with any other user's data
+ * It also checks if the data fields are correct before proceeding
+ *
+ */
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
+    /**
+     * initializes a register activity screen
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)

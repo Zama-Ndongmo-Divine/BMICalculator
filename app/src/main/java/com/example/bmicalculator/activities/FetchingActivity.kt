@@ -11,12 +11,19 @@ import com.example.bmicalculator.adapters.bmiAdapter
 import com.example.bmicalculator.models.Users
 import com.google.firebase.database.*
 
+/**
+ * Get data form the Realtime firebase database and displays it as a list in an app window
+ */
 class FetchingActivity : AppCompatActivity() {
 
     private lateinit var bmiRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
     private lateinit var bmiList: ArrayList<Users>
     private lateinit var dbRef: DatabaseReference
+
+    /**
+     * Creates an instance of the Fetching activity activity
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +39,9 @@ class FetchingActivity : AppCompatActivity() {
         getbmiData()
     }
 
+    /**
+     * Get the BMI data and place it in a Recycle view
+     */
     private fun getbmiData() {
         bmiRecyclerView.visibility = View.GONE
         tvLoadingData.visibility = View.VISIBLE
@@ -52,6 +62,10 @@ class FetchingActivity : AppCompatActivity() {
                 }
             }
 
+
+            /**
+             *  @
+             */
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }

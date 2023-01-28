@@ -14,11 +14,18 @@ import com.example.bmicalculator.databinding.ActivityMainBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
+/**
+ * This is the main BMI Calculator screen. It contains the BMI calculator, where calculations can be made and stored in a database, together with the username
+ */
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var dbRef : DatabaseReference
 
+    /**
+     * Creates an instance of the BMI Calculator activity
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +66,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * This verifies if the user has input a correct @param for the weight, height and name on their various text fields before proceeding with the calculations
+     */
 
     private fun vaidateInput(weight:String?, height:String?, bmiName:String?):Boolean {
         return when {
@@ -81,6 +90,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Displays the result to the user as a float, together with their health status, which ranges from underweight to obese
+     */
     private fun displayResult (bmi:Float) {
         val resultIndex = findViewById<TextView>(R.id.tvindex)
         val resultDescription = findViewById<TextView>(R.id.tvResult)

@@ -27,8 +27,9 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".FetchActivity"
-            android:exported="false">
+            android:name=".activities.FetchingActivity"
+            android:exported="false"
+            tools:ignore="DuplicateActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -42,13 +43,6 @@
         </activity>
         <activity
             android:name=".activities.ResultsActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".LoginAndSignup"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
