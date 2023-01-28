@@ -1,9 +1,10 @@
-package com.example.bmicalculator
+package com.example.bmicalculator.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.bmicalculator.R
 
 class SelectionScreen : AppCompatActivity() {
 
@@ -23,7 +24,7 @@ class SelectionScreen : AppCompatActivity() {
         }
 
         Hist.setOnClickListener {
-            val intent = Intent(this, ResultsActivity::class.java)
+            val intent = Intent(this, FetchingActivity::class.java)
             startActivity(intent)
         }
     }

@@ -1,4 +1,4 @@
-package com.example.bmicalculator
+package com.example.bmicalculator.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

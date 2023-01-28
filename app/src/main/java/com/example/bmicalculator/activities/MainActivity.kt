@@ -1,4 +1,4 @@
-package com.example.bmicalculator
+package com.example.bmicalculator.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.bmicalculator.R
+import com.example.bmicalculator.models.Users
 import com.example.bmicalculator.databinding.ActivityMainBinding
 
 import com.google.firebase.database.DatabaseReference

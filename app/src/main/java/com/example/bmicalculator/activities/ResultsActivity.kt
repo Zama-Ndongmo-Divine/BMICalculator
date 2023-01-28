@@ -1,14 +1,12 @@
-package com.example.bmicalculator
+package com.example.bmicalculator.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.bmicalculator.R
 
-class LoginAndSignup : AppCompatActivity() {
-
+class ResultsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_and_signup)
-
-
+        setContentView(R.layout.activity_results)
     }
 }
