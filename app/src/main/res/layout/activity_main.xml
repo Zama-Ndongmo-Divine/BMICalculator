@@ -231,6 +231,7 @@
             android:ems="10"
             android:hint="Enter Your Name"
             android:inputType="textPersonName"
+            android:textColor="@color/white"
             android:textColorHint="@color/white" />
     </androidx.cardview.widget.CardView>
 
