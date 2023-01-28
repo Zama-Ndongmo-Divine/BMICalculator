@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "191205525145",
-    "project_id": "bmicalculator-a6e0e",
-    "storage_bucket": "bmicalculator-a6e0e.appspot.com"
+    "project_number": "971984985444",
+    "project_id": "bmicalc-5af5a",
+    "storage_bucket": "bmicalc-5af5a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:191205525145:android:f91dbf30872e2d57961a08",
+        "mobilesdk_app_id": "1:971984985444:android:0346738d50c93408a1ee71",
         "android_client_info": {
           "package_name": "com.example.bmicalculator"
         }
       },
       "oauth_client": [
         {
-          "client_id": "191205525145-7t8t7c391nfsr83jklrdioaeag8377ms.apps.googleusercontent.com",
+          "client_id": "971984985444-1eb936gfdpf0sa6mitucsh8vgpbdh0g6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA6NB8-2sN8qwGKTj0lRPxV6I-ugvHa_uk"
+          "current_key": "AIzaSyB6rHMnWIRDyCr3L4MES1DgguG8uE8UgEE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "191205525145-7t8t7c391nfsr83jklrdioaeag8377ms.apps.googleusercontent.com",
+              "client_id": "971984985444-1eb936gfdpf0sa6mitucsh8vgpbdh0g6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
