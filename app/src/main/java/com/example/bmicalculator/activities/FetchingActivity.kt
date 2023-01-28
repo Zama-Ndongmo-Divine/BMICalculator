@@ -22,7 +22,7 @@ class FetchingActivity : AppCompatActivity() {
     private lateinit var dbRef: DatabaseReference
 
     /**
-     * Creates an instance of the Fetching activity activity
+     *Creates an instance of the Fetching activity activity
      */
 
     override fun onCreate(savedInstanceState: Bundle?) {
