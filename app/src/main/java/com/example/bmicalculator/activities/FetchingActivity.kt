@@ -2,24 +2,22 @@ package com.example.bmicalculator.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
+import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bmicalculator.R
-import com.example.bmicalculator.adapters.bmiAdapter
-import com.example.bmicalculator.models.Users
-import com.google.firebase.database.*
+import com.example.bmicalculator.adapters.BMI
+import com.example.bmicalculator.database.DBHelper
 
 /**
- * Get data form the Realtime firebase database and displays it as a list in an app window
+ * Get data form the SQLite database and displays it as a list in an app window
  */
-class FetchingActivity : AppCompatActivity() {
+class  FetchingActivity : AppCompatActivity() {
 
-    private lateinit var bmiRecyclerView: RecyclerView
-    private lateinit var tvLoadingData: TextView
-    private lateinit var bmiList: ArrayList<Users>
-    private lateinit var dbRef: DatabaseReference
+    private lateinit var recyclerView: RecyclerView
+    private var adapter: BMI? = null
+    private lateinit var dbhelper: DBHelper
 
     /**
      *Creates an instance of the Fetching activity activity
@@ -27,49 +25,55 @@ class FetchingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fetching)
+        setContentView(R.layout.list_info)
 
-        bmiRecyclerView = findViewById(R.id.recyclerView2)
-        bmiRecyclerView.layoutManager = LinearLayoutManager(this)
-        bmiRecyclerView.setHasFixedSize(true)
-        tvLoadingData = findViewById(R.id.tvloadingData)
 
-        bmiList = arrayListOf<Users>()
+        recyclerView = findViewById(R.id.recyclerView)
+        initRecyclerView()
+        getBMIData()
 
-        getbmiData()
+
+        adapter?.setOnClickDeleteItem {
+            deleteData(it.id)
+        }
+
+
     }
 
-    /**
-     * Get the BMI data and place it in a Recycle view
-     */
-    private fun getbmiData() {
-        bmiRecyclerView.visibility = View.GONE
-        tvLoadingData.visibility = View.VISIBLE
 
-        dbRef =FirebaseDatabase.getInstance().getReference("BMI Results")
-        dbRef.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                bmiList.clear()
-                if (snapshot.exists()){
-                    for (bmiSnap in snapshot.children) {
-                        val bmiData = bmiSnap.getValue(Users::class.java)
-                        bmiList.add(bmiData!!)
-                    }
-                    val mAdapter =bmiAdapter(bmiList)
-                    bmiRecyclerView.adapter = mAdapter
-                    bmiRecyclerView.visibility = View.VISIBLE
-                    tvLoadingData.visibility = View.GONE
-                }
-            }
-
-
-            /**
-             *  @
-             */
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
+    private fun initRecyclerView() {
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = BMI()
+        recyclerView.adapter = adapter
     }
+
+    private fun getBMIData() {
+
+        dbhelper = DBHelper(this)
+
+        val BMIlist = dbhelper.getAllBMI()
+        Log.e("Data", "${BMIlist.size}")
+        adapter?.addItems(BMIlist)
+    }
+
+    private fun deleteData(id:Int){
+       // if (id == null) return
+
+        val builder = AlertDialog.Builder(this)
+
+        builder.setMessage("Are you sure you want to delete record?")
+        builder.setCancelable(true)
+        builder.setPositiveButton("Yes") { dialog, _ ->
+            dbhelper.deleteBMIById(id)
+            getBMIData()
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val alert = builder.create()
+        alert.show()
+    }
+
 }
+
